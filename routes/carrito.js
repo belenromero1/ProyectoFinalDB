@@ -45,7 +45,7 @@ router.post('/actualizar/:id', (req, res) => {
     }
 
     if (results.length === 0) {
-      res.status(404).json({ error: 'El producto no existe en el carrito' });
+      res.status(404).json({ error: 'No hay productos en el carrito' });
       return;
     }
 
@@ -66,7 +66,6 @@ router.post('/actualizar/:id', (req, res) => {
 });
 
 
-// Ruta para eliminar un producto del carrito
 router.post('/eliminar/:id', (req, res) => {
   const productoId = req.params.id;
 
