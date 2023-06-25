@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <title>Carrito</title>
+</head>
+
+<body>
+
+  {{> navbar}}
+  <div class="carritoContainer">
+    {{#each productos}}
+    <div class="carritoProducto">
+      <h3>{{nombre}}</h3>
+      <img src="{{imagen}}" alt="imagen">
+
+      <div class="detallesProducto">
+        <p>Precio : ${{precio}}</p>
+        <div class="cantidadContainer">
+          <button class="cantidadButton" onclick="decrementarCantidad('{{id}}')">-</button>
+          <input type="number" class="cantidadInput" id="cantidad-{{id}}" value="{{cantidad}}">
+          <button class="cantidadButton" onclick="incrementarCantidad('{{id}}')">+</button>
+        </div>
+        <p class="precioTotal" id="precioTotal-{{id}}">Precio Total: ${{precioTotal}}</p>
+      </div>
+      <div class="botones">
+        <button onclick="actualizarCantidad('{{id}}')">Actualizar</button>
+        <button onclick="eliminarProducto('{{id}}')">Eliminar</button>
+      </div>
+      
+
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="total">
+    <h5>Precio Final:</h5>  <input type="text" id="totalCarrito" value="{{totalCarrito}}" readonly>
+      <form action="/compra" >
+  <button type="submit" class="botonAgregar"  >Comprar</button>
+     </form>
+
+   
+</div>
+  <script>
+    
+    function incrementarCantidad(id) {
+      const cantidadInput = document.getElementById(`cantidad-${id}`);
+      let cantidad = parseInt(cantidadInput.value);
+      cantidad++;
+      cantidadInput.value = cantidad;
+    }
+
+    
+    function decrementarCantidad(id) {
+      const cantidadInput = document.getElementById(`cantidad-${id}`);
+      let cantidad = parseInt(cantidadInput.value);
+      if (cantidad > 1) {
+        cantidad--;
+        cantidadInput.value = cantidad;
+      }
+    }
+
+ 
+function actualizarCantidad(id) {
+  const cantidadInput = document.getElementById(`cantidad-${id}`);
+  const cantidad = parseInt(cantidadInput.value);
+
+  fetch(`/carrito/actualizar/${id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ cantidad: cantidad })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data && data.message) {
+        alert(data.message);
+        window.location.href = '/carrito'; 
+      } 
+      
+    })
+    .catch(error => {
+      console.error('Error al actualizar la cantidad del producto en el carrito:', error);
+    });
+}
+    
+    function eliminarProducto(id) {
+      fetch(`/carrito/eliminar/${id}`, { method: 'POST' })
+        .then(response => response.text())
+        .then(message => {
+          alert(message);
+          window.location.href = '/carrito';
+        })
+        .catch(error => {
+          console.error('Error al eliminar el producto del carrito:', error);
+        });
+    }
+  
+   
+    function actualizarTotalCarrito() {
+      fetch('/carrito/total')
+        .then(response => response.json())
+        .then(data => {
+          const totalCarritoInput = document.getElementById('totalCarrito');
+          totalCarritoInput.value = data.totalCarrito.toFixed(2);
+ 
+        })
+        .catch(error => {
+          console.error('Error al obtener la suma de precios totales:', error);
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      actualizarTotalCarrito();
+    });
+
+  </script>
+
+{{> footer}}
+</body>
+
+</html>

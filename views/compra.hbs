@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/formularios.css">
+    <title>Finalizar compra</title>
+</head>
+<body>
+
+{{> navbar}}
+
+<form action="/compra" method="POST">
+<h1>Medios de pago</h1>
+  <div class="tarjetas-container">
+    <div class="tarjeta ">
+      <img src="https://e7.pngegg.com/pngimages/996/264/png-clipart-credit-card-visa-logo-mastercard-credit-card-blue-text.png" alt="Visa">
+    </div>
+  
+    <div class="tarjeta">
+      <img src="https://w1.pngwing.com/pngs/191/339/png-transparent-visa-mastercard-logo-credit-card-yellow-text-line-area-circle.png" alt="Mastercard">
+    </div>
+  
+    <div class="tarjeta">
+      <img src="https://w7.pngwing.com/pngs/711/297/png-transparent-logo-american-express-payment-computer-icons-brand-american-express-blue-text-rectangle-thumbnail.png" alt="Amex">
+    </div>
+ 
+    <div class="tarjeta">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Logo_Naranja.png" alt="naranja">
+    </div>
+    <div class="tarjeta">
+      <img src="https://1000marcas.net/wp-content/uploads/2023/01/Mercado-Pago-Logo.png" alt="mercadoPago">
+    </div>
+ </div>
+ 
+<label for="nombre_cliente">
+  Nombre Completo:
+  <input type="text" name="nombre_cliente"  required>
+  </label>
+  <label for="tarjeta">
+    Numero de Tarjeta:
+  <input type="int" name="tarjeta" required>
+  </label>
+  <label for="fecha ">
+   Fecha de Expiracion:
+  <input type="text" name="fecha_tarjeta" placeholder="MM/YY" pattern="\d{2}/\d{2}"required>
+  </label>
+  <label for="codigo_seguridad">
+    Codigo de Seguridad:
+  <input type="int" name="codigo_seguridad" required>
+  </label>
+
+
+<h1>Datos de Envio</h1>
+  <label for="direccion">
+    Dirección:
+    <input type="text" name="direccion" required>
+  </label>
+   <label for="altura">
+    Altura:
+    <input type="int" name="altura" required>
+  </label>
+  
+  
+  <label for="localidad">
+    Localidad:
+    <input type="text" name="localidad" required>
+  </label>
+  
+  <label for="codigo_postal">
+    Código postal:
+    <input type="int" name="codigo_postal" required>
+  </label>
+  
+  
+   <button type="submit">Finalizar compra</button>
+   
+</form>
+
+{{> footer}}
+
+</body>
+</html>

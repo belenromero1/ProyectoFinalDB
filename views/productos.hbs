@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <title>Productos</title>
+</head>
+<body>
+{{> navbar}}
+
+<div class="productosContainer">
+  {{#each productos}}
+  <div class="producto">
+    <h3>{{nombre}}</h3>
+    <div class="imageContainer">
+      <img src="{{imagen}}" alt="imagen" class="image">
+    </div>
+    <p>Precio: ${{precio}}</p>
+    <button class="botonAgregar" onclick="agregarAlCarrito('{{id}}')">Agregar al carrito</button>
+  </div>
+  {{/each}}
+</div>
+
+
+<script>
+  function agregarAlCarrito(id) {
+    fetch(`/productos/agregar-al-carrito/${id}`, { method: 'POST' })
+      .then(response => response.text())
+      .then(message => {
+        alert(message);
+      })
+      .catch(error => {
+        console.error('Error al agregar el producto al carrito:', error);
+      });
+  }
+</script>
+
+
+{{> footer}}
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+
+  .productosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .producto {
+    width: 300px; 
+    margin: 10px; 
+    display: block;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+ 
+  .botonAgregar{
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    padding: 8px;
+  }
+  
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+
+
+.carritoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carritoProducto {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #000000;
+  color: white;
+  width: 90%;
+  height: 25vh;
+}
+
+.carritoProducto img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.carritoProducto h3 {
+  width: 80px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.detallesProducto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 100px;
+}
+
+.botones{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.cantidadContainer {
+  display: flex;
+  align-items: center;
+}
+
+
+.cantidadInput {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.cantidadButton {
+  background-color: #ecdd83;
+  color: white;
+  border: none;
+  padding: 8px ;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 10px;
+  margin-top: auto;
+  
+}
+
+.cantidadButton:hover {
+  background-color: #c6cfc7;
+}
+
+
+
+.carritoProducto button {
+  background-color: #d6d3b6;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.carritoProducto button:hover {
+  background-color: #868181;
+}
+
+.total{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 15px;
+}
+.total h5{
+  margin-top: 5px;
+}
+.total input{
+border-radius: 5px;
+padding: 7px;
+}
+
+
+
+/* index css */
+.cards{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 10px;
+}
+.card{
+  width: 33vw;
+  margin: 10px;
+}
+
+.botonProductos{
+  font-size: 25px;
+  color: white;
+  border: none;
+  margin: 30px;
+  padding: 10px;
+  background-color:black;
+
+}
+
+.imagenLogo{
+  margin: 10px;
+  width: 110px;
+  height: 100px;
+}
+.imagenCarrito{
+  width: 40px;
+  height:40px;
+}
+
+header{
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+header p{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.contenedor {
+  display: flex;
+}
+.contenedor div{
+  flex-direction: row;
+}
+.carrito{
+  display: flex;
+  flex-direction: flex-end;
+}
+
+
+.contenedorEsferas{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+.esferas img{
+width: 280;
+height: 280px;
+}
+.portadaOferta img{
+  margin: 5px;
+  width: 98vw;
+  height: 30%;
+}
+
+footer {
+  width: 100vw;
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+.footerTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.social-media img {
+  width: 45px;
+  height: 45px;
+  margin: 10px 10px;
+
+}
+
+.footerBottom {
+  display: flex;
+  
+}
+
+.footerColumn {
+  flex: 1;
+}
+
+h4 {
+  margin-bottom: 10px;
+ 
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+li {
+  margin-bottom: 5px;
+}
+li a{
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+
+@media (max-width: 968px) {
+
+.cards{
+  margin: 0;
+
+}
+  .card {
+    width: 30%;
+    height: 15%;
+  }
+
+  .portadaOferta img {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .contenedorEsferas {
+    align-items: center;
+  }
+  .esferas img {
+    width: 50px;
+    height: 50px;
+  }
+
+  header p {
+    font-size: 20px;
+  }
+
+  .imagenLogo {
+    width: 80px;
+    height: 70px;
+  }
+
+  .botonProductos {
+    font-size: 10px;
+    margin: 20px;
+    padding: 5px;
+  }
+
+  .carritoProducto {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
+    height: auto;
+  }
+  .carritoProducto img {
+    width: 100%;
+    height: auto;
+  }
+  .carritoProducto h3 {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .detallesProducto {
+    padding: 0;
+  }
+  .botones {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cantidadContainer {
+    justify-content: center;
+  }
+  .cantidadInput {
+    width: 40px;
+    padding: 3px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .cantidadButton {
+    padding: 4px;
+    font-size: 14px;
+  }
+  .carritoProducto button {
+    margin-top: 0;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  .social-media img {
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px;
+  }
+
+  .footerColumn {
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  li{
+    margin: 10px;
+  }
+
+  li a {
+    font-size: 10px;
+  }
+}
+
+
